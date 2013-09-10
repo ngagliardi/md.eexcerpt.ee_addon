@@ -36,26 +36,27 @@ Class Md_eexcerpt {
 
     function md_eexcerpt()
     {
-        global $TMPL, $FNS;
+        $this->EE =& get_instance();
+        $TMPL = $this->EE->TMPL;
 
-    $stop_after = ( ! $TMPL->fetch_param('stop_after')) ? '500' :  $TMPL->fetch_param('stop_after');
-    
-    $if_Exceeds = ( ! $TMPL->fetch_param('if_exceeds')) ? '500' :  $TMPL->fetch_param('if_exceeds');
-    $append = ( ! $TMPL->fetch_param('append')) ? '&hellip;' :  $TMPL->fetch_param('append');
-    $the_link = ( ! $TMPL->fetch_param('the_link')) ? '' :  $TMPL->fetch_param('the_link');
-    
-    if ( ! is_numeric($stop_after))
-      $stop_after = 500;
-                
-    if ( ! is_numeric($if_Exceeds))
-      $if_Exceeds = 500;
+        $stop_after = ( ! $TMPL->fetch_param('stop_after')) ? '500' :  $TMPL->fetch_param('stop_after');
+        
+        $if_Exceeds = ( ! $TMPL->fetch_param('if_exceeds')) ? '500' :  $TMPL->fetch_param('if_exceeds');
+        $append = ( ! $TMPL->fetch_param('append')) ? '&hellip;' :  $TMPL>fetch_param('append');
+        $the_link = ( ! $TMPL->fetch_param('the_link')) ? '' :  $TMPL>fetch_param('the_link');
+        
+        if ( ! is_numeric($stop_after))
+          $stop_after = 500;
+                    
+        if ( ! is_numeric($if_Exceeds))
+          $if_Exceeds = 500;
 
-    if ($if_Exceeds < $stop_after) 
-    {
-      $if_Exceeds = $stop_after;
-    }
-                
-    $this->return_data = $this->_dirty_work($TMPL->tagdata, $if_Exceeds, $stop_after, $the_link, $append);
+        if ($if_Exceeds < $stop_after) 
+        {
+          $if_Exceeds = $stop_after;
+        }
+                    
+        $this->return_data = $this->_dirty_work($TMPL->tagdata, $if_Exceeds, $stop_after, $the_link, $append);
     }
 
     
