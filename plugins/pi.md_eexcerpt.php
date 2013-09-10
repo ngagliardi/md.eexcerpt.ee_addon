@@ -42,8 +42,8 @@ Class Md_eexcerpt {
         $stop_after = ( ! $TMPL->fetch_param('stop_after')) ? '500' :  $TMPL->fetch_param('stop_after');
         
         $if_Exceeds = ( ! $TMPL->fetch_param('if_exceeds')) ? '500' :  $TMPL->fetch_param('if_exceeds');
-        $append = ( ! $TMPL->fetch_param('append')) ? '&hellip;' :  $TMPL>fetch_param('append');
-        $the_link = ( ! $TMPL->fetch_param('the_link')) ? '' :  $TMPL>fetch_param('the_link');
+        $append = ( ! $TMPL->fetch_param('append')) ? '&hellip;' :  $TMPL->fetch_param('append');
+        $the_link = ( ! $TMPL->fetch_param('the_link')) ? '' :  $TMPL->fetch_param('the_link');
         
         if ( ! is_numeric($stop_after))
           $stop_after = 500;
